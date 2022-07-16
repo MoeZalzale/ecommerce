@@ -1,0 +1,116 @@
+type Item {
+  created_at: DateTime
+  description: String
+  id: ID!
+  image: String
+  seller_id: ID
+  title: String
+  price: Float
+}
+
+type Seller {
+  created_at: DateTime
+  description: String
+  id: ID!
+  image: String
+  name: String
+}
+
+type Query {
+  getItemList: [Item]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "Item"
+      configuration: "postgresql_config"
+    )
+  """
+  This query is an example of how to simply paginate your responses.
+  """
+  getPaginatedItemList(first: Int!, after: Int!): [Item]
+    @dbquery(
+      type: "postgresql"
+      query: """
+      select * from "public"."Item" limit $1 offset $2
+      """
+      configuration: "postgresql_config"
+    )
+  """
+  In this example, a single query parameter is passed. If the request to the DB will
+  return at most one value you can remove the square brackets from the result.
+  """
+  getItemById(id: ID!): Item
+    @dbquery(
+      type: "postgresql"
+      query: """
+      select * from "public"."Item" where "id" = $1
+      """
+      configuration: "postgresql_config"
+    )
+
+    getSellerById(id: ID!): Seller
+    @dbquery(
+      type: "postgresql"
+      query: """
+      select * from "Seller" where "id" = $1
+      """
+      configuration: "postgresql_config"
+    )
+  """
+  In this example, two query parameters are passed. If the request to the DB will
+  return at most one value you can remove the square brackets from the result.
+  """
+  getItemByIdAndImage(id: ID!, image: String!): [Item]
+    @dbquery(
+      type: "postgresql"
+      query: """
+      select * from "public"."Item" where "id" = $1 and "image" = $2
+      """
+      configuration: "postgresql_config"
+    )
+  getSellerList: [Seller]
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "Seller"
+      configuration: "postgresql_config"
+    )
+}
+
+type Mutation {
+  """
+  In this mutation example you can see how to do a mutation to insert data in the database.
+  """
+  insertItem(
+    image: String!
+    created_at: DateTime!
+    seller_id: ID!
+    description: String!
+    title: String!
+  ): Item
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "Item"
+      dml: INSERT
+      configuration: "postgresql_config"
+    )
+  """
+  In this mutation example you can see how to do a mutation to delete data from the database.
+  """
+  deleteItem(
+    image: String!
+    created_at: DateTime!
+    seller_id: ID!
+    id: ID!
+    description: String!
+    title: String!
+  ): Item
+    @dbquery(
+      type: "postgresql"
+      schema: "public"
+      table: "Item"
+      dml: DELETE
+      configuration: "postgresql_config"
+    )
+}
