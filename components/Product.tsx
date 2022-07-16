@@ -25,9 +25,9 @@ const quantity = getItemQuantity(id)
       <p>{description}</p>
 
       <div className='flex py-5 items-center justify-around space-x-2'>
-      <MinusCircleIcon onClick={() => decreaseCartQuantity(id,price)} className='w-9 text-red-600 cursor-pointer'> </MinusCircleIcon>
+      <button><MinusCircleIcon onClick={() => decreaseCartQuantity(id,price)} className='w-9 text-red-600 cursor-pointer'> </MinusCircleIcon></button>
       <span>{quantity}</span>
-      <PlusCircleIcon onClick={() => increaseCartQuantity(id,price)} className='w-9 text-green-600 cursor-pointer'> </PlusCircleIcon>
+      <button><PlusCircleIcon onClick={() => increaseCartQuantity(id,price)} className='w-9 text-green-600 cursor-pointer'> </PlusCircleIcon></button>
 
       </div>
     
