@@ -1,17 +1,19 @@
 import React from 'react'
-import {ShoppingCartIcon, SearchIcon} from '@heroicons/react/solid'
+import {ShoppingCartIcon, SearchIcon, ColorSwatchIcon} from '@heroicons/react/solid'
 import { useShoppingCart } from '../context/ShoppingCartContext'
+import {useSearchBar} from '../context/SearchBarContext'
 function Header() {
     const {cartQuantity,openCart,closeCart} = useShoppingCart()
+    const {updateSearched,searched} = useSearchBar()
     return (
         <div className= 'bg-white shadow-sm flex items-center'>
 
             <div className='flex items-center py-4 lg:justify-center flex-1'>
-           
             <form className='flex items-center border rounded-sm space-x-2 px-3 py-2 ml-5'>
          
             <SearchIcon className='w-7 h-7'/>
-            <input type='text' placeholder='Search' className='outline-none flex-1'></input>
+            <input onChange={(e)=> updateSearched(e.target.value)
+            } type='text' placeholder='Search' className='outline-none flex-1'></input>
             <button hidden type='submit'></button>
             </form>
            

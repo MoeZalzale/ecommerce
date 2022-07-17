@@ -8,10 +8,11 @@ import client from '../apollo-client'
 import { useEffect } from 'react'
 import {PlusCircleIcon,MinusCircleIcon} from '@heroicons/react/solid'
 import Product from '../components/Product'
+import { useSearchBar } from '../context/SearchBarContext'
 
 const Home: NextPage = () => {
 
-
+const {searched}= useSearchBar()
 
 const {loading,error,data} = useQuery(GET_ALL_ITEMS)
 
@@ -29,15 +30,17 @@ price : number
   return (
     <div className='grid grid-cols-4 gap-2 p-5 auto-rows-fr'>
 
-    {data?.getItemList.map((item: Item)=>
-      
+    {data?.getItemList.filter((item: Item)=>
+
+       item.title.toLowerCase().includes(searched.toLowerCase()))
+       .map((item: Item) => 
 
       <Product {...item} />
       
       
+       )
       
-      
-      )}
+      }
 
     
 
