@@ -6,6 +6,18 @@ query ($id : ID!){
         name
     }
 }
+`
+
+export const GET_ALL_SELLERS = gql`
+query{
+    getSellerList{
+        id,
+        name,
+        image,
+        description
+    }
+}
+
 
 `
 
@@ -35,6 +47,21 @@ query ($id: ID!) {
         price
     }
 }
+`
+export const GET_SELLERS_ITEMS = gql`
+query ($id: ID!){
+    getSellerById(id: $id){
+        name,
+        image
+        items{
+        image
+        id
+        description
+        title
+        price
+        }
+    }
 
+}
 
 `

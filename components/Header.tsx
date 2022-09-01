@@ -8,7 +8,13 @@ function Header() {
     return (
         <div className= 'bg-white shadow-sm flex items-center'>
 
-            <div className='flex items-center py-4 lg:justify-center flex-1'>
+            <div className='flex items-center py-4 lg:justify-between flex-1 px-10'>
+
+            <div className=' flex items-center'>
+                <a href="sellers"><h1 className='mr-10 font-bold text-lg'>Sellers</h1></a>
+               <a href="/"> <h1 className='font-bold text-lg'>Store</h1></a>
+            </div>
+
             <form className='flex items-center border rounded-sm space-x-2 px-3 py-2 ml-5'>
          
             <SearchIcon className='w-7 h-7'/>
@@ -20,14 +26,14 @@ function Header() {
         
        
     
-        </div>
+        
   
         <button onClick={openCart}className='relative  w-10 h-10 cursor-pointer  mr-5' >
         <ShoppingCartIcon/>
         <div className=' w-5 h-5 rounded-full bg-red-700 absolute left-0 bottom-0 translate-x--3 translate-y-3  text-white flex justify-center items-center' >{cartQuantity}</div>
         </button>
 
-        
+        </div>
         </div>
     )
 }
