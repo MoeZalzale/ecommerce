@@ -22,8 +22,13 @@ const Sellerstore = () => {
   const {query: {id}} = useRouter()
   const {data, error , loading} = useQuery(GET_SELLERS_ITEMS, {variables: {id:id }})
     return (
+       
+
         <>
+
+     
         <div className= 'flex p-5 items-center'>
+       
         <div className='w-20 h-20 overflow-hidden rounded-full mr-10'>
                     <img src={data?.getSellerById.image} alt=""/>
                     </div>
@@ -36,10 +41,18 @@ const Sellerstore = () => {
         
         )}
         
-    
+
+     
           
         </div>
-            </>
+        
+
+        </>
+
+       
+           
+
+        
     )
 }
 
