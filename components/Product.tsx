@@ -21,7 +21,7 @@ const quantity = getItemQuantity(id)
         <div className='bg-white shadow-sm flex flex-col items-center rounded max-w-sm' >
       <h1> {title}</h1>
       <h1 className='font-bold'>${price}</h1>
-      <img src={image} alt="" width={250}  className='p-5 flex-1 object-contain'/>
+      <img src={image} alt="" width={250}  className=' p-3 flex-1 object-contain'/>
       <p>{description}</p>
 
       <div className='flex py-5 items-center justify-around space-x-2'>

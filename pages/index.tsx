@@ -28,7 +28,7 @@ price : number
 
 
   return (
-    <div className='grid grid-cols-4 gap-2 p-5 auto-rows-fr'>
+    <div className='grid grid-cols-5 gap-5 p-5 auto-rows-fr'>
 
     {data?.getItemList.filter((item: Item)=>
 
