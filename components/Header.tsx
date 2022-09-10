@@ -11,7 +11,7 @@ function Header() {
             <div className='flex items-center py-4 lg:justify-between flex-1 px-10'>
 
             <div className=' flex items-center'>
-                <a href="sellers"><h1 className='mr-10 font-bold text-lg'>Sellers</h1></a>
+                <a href="/sellers"><h1 className='mr-10 font-bold text-lg'>Sellers</h1></a>
                <a href="/"> <h1 className='font-bold text-lg'>Store</h1></a>
             </div>
 

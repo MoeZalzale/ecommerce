@@ -35,7 +35,7 @@ function ShoppingCart({isOpen}: ShoppingCartProps) {
     animate={{width:'700px',transition:{type:'spring',duration:0.5}}}
     exit={{width:0, transition:{type:'spring',duration:0.5}}}
     
-    className='h-screen bg-white absolute top-0 right-0 flex flex-col z-10  ' onClick={(e) => e.stopPropagation()} >
+    className='h-screen bg-white absolute top-0 right-0 flex flex-col z-10 overflow-y-scroll' onClick={(e) => e.stopPropagation()} >
         
         <h1 className='p-5 font-bold text-lg'>Cart</h1>
         <hr/>
