@@ -3,7 +3,7 @@ import {ShoppingCartIcon, SearchIcon, ColorSwatchIcon} from '@heroicons/react/so
 import { useShoppingCart } from '../context/ShoppingCartContext'
 import {useSearchBar} from '../context/SearchBarContext'
 function Header() {
-    const {cartQuantity,openCart,closeCart} = useShoppingCart()
+    const {cartQuantity,openCart} = useShoppingCart()
     const {updateSearched,searched} = useSearchBar()
     return (
         <div className= 'bg-white shadow-sm flex items-center'>
@@ -30,7 +30,7 @@ function Header() {
   
         <button onClick={openCart}className='relative  w-10 h-10 cursor-pointer  mr-5' >
         <ShoppingCartIcon/>
-        <div className=' w-5 h-5 rounded-full bg-red-700 absolute left-0 bottom-0 translate-x--3 translate-y-3  text-white flex justify-center items-center' >{cartQuantity}</div>
+        {cartQuantity>0 && <div className=' w-5 h-5 rounded-full bg-red-700 absolute left-0 bottom-0 translate-x--3 translate-y-3  text-white flex justify-center items-center' >{cartQuantity}</div>}
         </button>
 
         </div>
