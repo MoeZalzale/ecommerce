@@ -3,7 +3,6 @@ import {useRouter} from 'next/router'
 import {GET_SELLERS_ITEMS} from '../../graphql/queries'
 import { useQuery } from '@apollo/client'
 import Product from '../../components/Product'
-import context from 'react-bootstrap/esm/AccordionContext'
 
 
 
